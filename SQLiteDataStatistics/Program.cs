@@ -4,8 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
-namespace SQLiteToExcel
+namespace SQLiteDataStatistics
 {
     internal static class Program
     {
@@ -17,7 +16,7 @@ namespace SQLiteToExcel
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(FormExport.GetInstance());
+            Application.Run(new FormDATAN());
         }
     }
 }

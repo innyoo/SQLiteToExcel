@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteToExcel", "SQLiteToExcel\SQLiteToExcel.csproj", "{837442C1-F32A-486F-8EB4-850097BF0FD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLiteDataStatistics", "SQLiteDataStatistics\SQLiteDataStatistics.csproj", "{3A2BF08C-59F9-4A15-A248-D238348E2C8F}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{837442C1-F32A-486F-8EB4-850097BF0FD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{837442C1-F32A-486F-8EB4-850097BF0FD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{837442C1-F32A-486F-8EB4-850097BF0FD3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3A2BF08C-59F9-4A15-A248-D238348E2C8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3A2BF08C-59F9-4A15-A248-D238348E2C8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3A2BF08C-59F9-4A15-A248-D238348E2C8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3A2BF08C-59F9-4A15-A248-D238348E2C8F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

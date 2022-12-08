@@ -2,7 +2,7 @@
 
 namespace SQLiteToExcel.BLL
 {
-    internal class TimeConversion   //时间换算
+    public class TimeConversion   //时间换算
     {
         public static int _correctionValue = 8 * 60 * 60;
         public static string TimeStamp_DataTime(long unixTimeStamp)   //时间戳到日期时间

@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SQLiteToExcel.BLL
 {
-    internal class Tools
+    public class Tools
     {
         public static bool DbExists(String path)  //判断db文件是否正确
         {

@@ -16,6 +16,6 @@ namespace SQLiteToExcel.DAL
             SQLiteCommand command = new SQLiteCommand(sql, m_dbConnection);
             SQLiteDataReader reader = command.ExecuteReader();
             return reader; 
-        }
+        } 
     }
 }
