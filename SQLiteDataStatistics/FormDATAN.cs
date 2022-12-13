@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-using SQLiteToExcel.BLL;
-using SQLiteToExcel.DAL;
-using SQLiteToExcel;
+using DbToExcel.BLL;
+using DbToExcel.DAL;
+using DbToExcel;
 using System.Data.SQLite;
 
 namespace SQLiteDataStatistics
@@ -60,7 +60,7 @@ namespace SQLiteDataStatistics
                 e.Effect = DragDropEffects.Link;
             else
                 e.Effect = DragDropEffects.None;
-        }
+        } 
         void TextBox_DragDrop(object sender, DragEventArgs e)//拖放完成时发生
         {
             //这里显示文件名
@@ -96,7 +96,7 @@ namespace SQLiteDataStatistics
         }
         private void ComboBox表_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GlobalVariable.tableName =((ComboBox)sender).Text;
+            GlobalVariable.tableName =((ComboBox)sender).Text;  
         }
         private void ComboBox字段_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -209,7 +209,7 @@ namespace SQLiteDataStatistics
             if (GlobalVariable.tableName == "datas" && GlobalVariable.fieldName == "flow"&&radioButton连续.Checked)
             {
                 DirectoryInfo parentPath = System.IO.Directory.GetParent(GlobalVariable.dbPath);
-
+                   
                 GlobalVariable.flowReportPath = parentPath + "\\" +parentPath.Name+ "_flow分析" + "" + ".csv";
                 if (Tools.FileExistDelete(GlobalVariable.flowReportPath))
                 {
@@ -228,6 +228,9 @@ namespace SQLiteDataStatistics
             label提示语.Text = "";
         }
 
+        private void GroupBox1_Enter(object sender, EventArgs e)
+        {
 
+        }
     }
 }

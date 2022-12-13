@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDATAN));
             this.button输出分析文档 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -144,6 +145,7 @@
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "取值范围";
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
             // 
             // numericUpDown最大值
             // 
@@ -335,9 +337,10 @@
             this.Controls.Add(this.button输出分析文档);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormDATAN";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "数据分析";
+            this.Text = "数据分析 v0.1.1";
             this.Load += new System.EventHandler(this.FormDATAN_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.公用_DragEnter);

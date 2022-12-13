@@ -1,5 +1,5 @@
-﻿using SQLiteToExcel.BLL;
-using SQLiteToExcel.DAL;
+﻿using DbToExcel.BLL;
+using DbToExcel.DAL;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -115,8 +115,7 @@ namespace SQLiteDataStatistics
             ICollection key = 开始_持续时间.Keys;
             int count = key.Count;  //出现次数
 
-
-
+            long totalDuration = GlobalVariable.endTime - GlobalVariable.startTime;     //总时长
             int sum = 0;    //所有合计时间
             int longest = 0;    //最长持续时间
             int[] duration = new int[count];
@@ -160,7 +159,7 @@ namespace SQLiteDataStatistics
 
 
             float average = sum / count;  //平均持续时间
-
+            double timeRatio = (double)sum / (double)totalDuration;      //时间占比
             int choose = 0;
             
             foreach (long k in key)
@@ -180,31 +179,41 @@ namespace SQLiteDataStatistics
                             choose++;
                             break;
                         case 1:
+                            rowData["统计项"] = "总时长(单位：秒）";
+                            rowData["值"] = totalDuration;
+                            choose++;
+                            break;
+                        case 2:
                             rowData["统计项"] = "flow范围";
                             rowData["值"] = GlobalVariable.minimum + "~" + GlobalVariable.maximum;
                             choose++;
                             break;
-                        case 2:
+                        case 3:
                             rowData["统计项"] = "出现次数";
                             rowData["值"] = count;
                             choose++;
                             break;
-                        case 3:
+                        case 4:
                             rowData["统计项"] = "累计持续时间";
                             rowData["值"] = sum;
                             choose++;
                             break;
-                        case 4:
+                        case 5:
+                            rowData["统计项"] = "累计时间占比";
+                            rowData["值"] = timeRatio;
+                            choose++;
+                            break;
+                        case 6:
                             rowData["统计项"] = "单次最长时间";
                             rowData["值"] = longest;
                             choose++;
                             break;
-                        case 5:
+                        case 7:
                             rowData["统计项"] = "平均持续时间";
                             rowData["值"] = average;
                             choose++;
                             break;
-                        case 6:
+                        case 8:
                             rowData["统计项"] = "中位数";
                             rowData["值"] = median;
                             choose++;
@@ -221,7 +230,7 @@ namespace SQLiteDataStatistics
                 }
                 if(choose==count)
                 {
-                    while (choose < 7)
+                    while (choose < 9)
                     {
                         rowData = dataTable.NewRow();   //*建立行数据
                         switch (choose)
@@ -230,42 +239,48 @@ namespace SQLiteDataStatistics
                                 rowData["统计项"] = "时间范围";
                                 rowData["值"] = TimeConversion.TimeStamp_DataTime(GlobalVariable.startTime)
                                     + "至" + TimeConversion.TimeStamp_DataTime(GlobalVariable.endTime);
+                                choose++;
                                 break;
                             case 1:
+                                rowData["统计项"] = "总时长(单位：秒）";
+                                rowData["值"] = totalDuration;
+                                choose++;
+                                break;
+                            case 2:
                                 rowData["统计项"] = "flow范围";
                                 rowData["值"] = GlobalVariable.minimum + "~" + GlobalVariable.maximum;
                                 choose++;
                                 break;
-                            case 2:
+                            case 3:
                                 rowData["统计项"] = "出现次数";
                                 rowData["值"] = count;
                                 choose++;
                                 break;
-                            case 3:
+                            case 4:
                                 rowData["统计项"] = "累计持续时间";
                                 rowData["值"] = sum;
                                 choose++;
                                 break;
-                            case 4:
+                            case 5:
+                                rowData["统计项"] = "累计时间占比";
+                                rowData["值"] = timeRatio;
+                                choose++;
+                                break;
+                            case 6:
                                 rowData["统计项"] = "单次最长时间";
                                 rowData["值"] = longest;
                                 choose++;
                                 break;
-                            case 5:
+                            case 7:
                                 rowData["统计项"] = "平均持续时间";
                                 rowData["值"] = average;
                                 choose++;
                                 break;
-                            case 6:
+                            case 8:
                                 rowData["统计项"] = "中位数";
                                 rowData["值"] = median;
                                 choose++;
                                 break;
-                            //case 7:
-                            //    rowData["统计项"] = "四分位数";
-                            //    //rd["值"] = ;
-                            //    choose++;
-                            //    break;
                             default:
                                 break;
 
